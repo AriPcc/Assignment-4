@@ -1,7 +1,7 @@
 /******************************************************************************
 # Author:            Ari P.
 # Assignment:        Assignment 4
-# Date:              April 24, 2025
+# Date:              April 27, 2025
 # Description:       This program will determine whether one phrase entered by
                      the user contains the other.
 # Input:             phrase1 (string), phrase2 (string)
