@@ -36,42 +36,35 @@ int main() {
    getline(cin, phrase2);
    cout << "You entered: " << phrase2 << endl << endl;
 
-   // Check if both phrases are the same
-   if (phrase1 == phrase2) {
-      cout << "Both phrases match" << endl << endl;
-      cout << "Thank you for using the Phrases and Subphrases program!" << \
-endl;
-      return 0;
-   }
-   
    // Search phrase1 for phrase2 and set pos1 to its location within (if
    // phrase1 doesn't contain phrase2, pos1 will be npos, or -1).
    pos1 = phrase1.find(phrase2);
 
-   // If phrase1 contains phrase2, then set phrase3 to be phrase1 (starting at
-   // pos1) and print the result
-   if (pos1 != string::npos) {
-      cout << "Phrase 2 is found within Phrase 1" << endl;
-      phrase3 = phrase1.substr(pos1);
+   // Check if both phrases are the same
+   if (phrase1 == phrase2) {
+      phrase3 = "Both phrases match";
       // phrase3 will be printed later
    }
+   // If phrase1 contains phrase2, then set phrase3 to be phrase1 (starting at
+   // pos1) and print the result
+   else if (pos1 != string::npos) {
+      cout << "Phrase 2 is found within Phrase 1" << endl;
+      phrase3 = phrase1.substr(pos1);
+   }
+   // Since phrase1 doesn't contain phrase2, check for the reverse
    else {
-      // Since phrase1 doesn't contain phrase2, check for the reverse
       pos2 = phrase2.find(phrase1);
       if (pos2 != string::npos) {
          cout << "Phrase 1 is found within Phrase 2" << endl;
          phrase3 = phrase2.substr(pos2);
       }
+      // Neither string contains the other
       else {
-         // Neither string contains the other
-         cout << "No matches" << endl << endl;
-         cout << "Thank you for using the Phrases and Subphrases program!" << \
-endl;
-         return 0;
+         phrase3 = "No matches";
       }
    }
 
-   // Print whichever phrase contained the other
+   // Print the final phrase
    cout << phrase3 << endl << endl;
 
    // Print a goodbye message
